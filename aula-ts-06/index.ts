@@ -1,17 +1,30 @@
-const game: {id:number, platform: number|string, title: string, publisher: string, launch: string|Date } = {
+type Platform = {
+    id: number;
+    name: string;
+};
+
+type Game = {
+    id: number;
+    platform: Platform | string;
+    title: string;
+    publisher: string;
+    launch?: string | Date;
+};
+
+const game: Game = {
     id: 1,
-    // platform: {
-    //     id: 1,
-    //     name: "Playstation"
-    // },
+    platform: {
+        id: 1,
+        name: "Playstation"
+    },
     title: "The Last of Us",
     publisher: "Naughty Dog",
-    launch: "2013-06-14" 
-}
+    launch: "2013-06-14" // pode ser um Date. É opcional (para jogos ainda não lançados).
+};
 
-const games = [game];
+const games: Game[] = [game];
 
-function play(game: any){
+function play(game: Game): void {
     // runs the game
     console.log(game);
 }
